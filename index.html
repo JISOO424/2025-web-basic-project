@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Let's Movies</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  
+</head>
+<body>      
+  <nav class="navbar">
+    <a href="#" class="logo-link">
+      <img src="wb_logo.png" alt="Let's Movies 로고" class="logo-img">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#">HOME</a></li>
+      <li><a href="#searching">Searching</a></li>
+    </ul>
+    <div class="search-login">
+      <input type="text" class="search-input" placeholder="Please enter a search keyword.">
+      <button class="search-btn">🔍</button>
+      <div class="login-box">
+        <input type="text" placeholder="ID" class="login-input">
+        <input type="password" placeholder="PW" class="login-input">
+        <button class="login-btn">login</button>
+        <button id="dark-mode-toggle" class="dark-mode-toggle-btn">darkmode</button>
+        <div class="welcome-message">
+          <span id="welcome-text"></span>
+          <button class="logout-btn">log out</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <main class="main-content">
+    <div class="univ-row first-univ-row ">
+      <div class="univ-logo-box"><img src="/univ_logo/pnu-logo.png" alt="부산대학교 로고" class="univ-logo-img"></div>
+      <div class="movie-rank-boxes new-style" id="pnu-movies">
+        <!-- 영화 카드들이 여기에 동적으로 추가됩니다 -->
+      </div>
+    </div>
+    <div class="univ-row second-univ-row">
+      <div class="univ-logo-box"><img src="/univ_logo/pukyong.png" alt="부경대학교 로고" class="univ-logo-img"></div>
+      <div class="movie-rank-boxes new-style" id="pknu-movies">
+        <!-- 영화 카드들이 여기에 동적으로 추가됩니다 -->
+      </div>
+    </div>
+    <div class="univ-row third-univ-row">
+      <div class="univ-logo-box"><img src="/univ_logo/symbol0101.jpg" alt="한국해양대학교 로고" class="univ-logo-img"></div>
+      <div class="movie-rank-boxes new-style" id="kmou-movies">
+        <!-- 영화 카드들이 여기에 동적으로 추가됩니다 -->
+      </div>
+    </div>
+  </main>
+  <footer class="footer">
+    E-Mail: sinabade@pusan.ac.kr
+  </footer>
+
+  <!-- Searching Page Content -->
+  <div id="search-page-content" class="main-content" style="display: none;">
+    <div class="search-page-header">
+        <h2>Complete movie list</h2>
+        <div class="filter-controls">
+            <label for="year-filter">Year:</label>
+            <select id="year-filter">
+                <option value="all">All</option>
+
+            
+                <!-- 연도 옵션은 자바스크립트로 채울 수 있습니다 -->
+            </select>
+
+            <label for="genre-filter">Genre:</label>
+            <select id="genre-filter">
+                <option value="all">All</option>
+                <option value="Action">Action</option>
+                <option value="Blockbuster">Blockbuster</option>
+                <option value="Fantasy">Fantasy</option>
+                <option value="Comedy">Comedy</option>
+                <option value="Drama">Drama</option>
+                 <!-- 장르 옵션은 자바스크립트로 채울 수 있습니다 -->
+            </select>
+
+            <label for="rating-filter">Rating:</label>
+            <select id="rating-filter">
+                <option value="all">All</option>
+                <option value="4.0">higher 4.0 </option>
+                <option value="3.0">higher 3.0</option>
+                <option value="2.0">higher 2.0</option>
+            </select>
+        </div>
+    </div>
+
+    <div id="all-movies-list" class="movie-rank-boxes new-style">
+      <!-- 전체 영화 목록이 여기에 동적으로 추가됩니다 -->
+    </div>
+  </div>
+
+  <!-- 팝업 창 구조 -->
+  <div id="movie-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <h2 id="modal-movie-title"></h2>
+      <div class="modal-movie-details">
+        <img id="modal-movie-poster" src="" alt="">
+        <div class="modal-info-container">
+          <div class="modal-info-column">
+            <p><strong>Starring:</strong></p>
+            <p id="modal-movie-starring"></p>
+            <p id="modal-movie-starring2"></p>
+            <p style="margin-top: 15px;"><strong>Director:</strong></p>
+            <p id="modal-movie-director"></p>
+          </div>
+          <div class="modal-info-column">
+            <p><strong>Genre:</strong></p>
+            <p id="modal-movie-genre"></p>
+            <p style="margin-top: 15px;"><strong>Year of release:</strong></p>
+            <p id="modal-movie-year"></p>
+          </div>
+        </div>
+      </div>
+      <div class="review-write-box">
+        <textarea placeholder="Please leave your thoughts.
+                " class="review-input"></textarea>
+        <button class="review-submit-button">확인</button>
+      </div>
+      <div class="existing-reviews">
+        <div class="existing-review-item">
+          <p>이미 작성된 리뷰1</p>
+        </div>
+        <div class="existing-review-item">
+          <p>이미 작성된 리뷰2</p>
+        </div>
+      </div>
+      <p id="modal-movie-rating"></p>
+    </div>
+  </div>
+  <!-- 팝업 창 구조 끝 -->
+
+  <script src="script.js"></script>
+</body>
+</html> 

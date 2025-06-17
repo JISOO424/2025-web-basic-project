@@ -216,12 +216,13 @@ function loadUniversityMovies() {
   Object.entries(universityMovieMap).forEach(([univ, idxArr]) => {
     const box = univMap[univ];
     if (!box) return;
-    idxArr.forEach(idx => {
+   idxArr.forEach((idx, rank) => {
       const movie = movies[idx];
       if (!movie) return;
       const card = document.createElement('div');
       card.className = 'movie-card';
       card.innerHTML = `
+        <div class="rank-badge">${rank + 1}</div>
         <img src="${movie.poster}" alt="${movie.title}" class="movie-poster">
         <h3 class="movie-title">${movie.title}</h3>
         <p class="movie-rating">⭐ ${movie.rating}</p>
